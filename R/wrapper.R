@@ -5,7 +5,7 @@ glassoParallel=function(S,
                         shrink=-1,
                         threads=1,
                         cutoffs=0.0001){
-dyn.load("src/GlassoFast2.so")
+dyn.load("src/GLassoFast2.so")
 
 ptm <- proc.time()
 out=a=.C("main2",
