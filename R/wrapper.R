@@ -1,6 +1,6 @@
 
 GlassoFast2=function(S,
-                        RhoS,
+                        rho,
                         approx=-1,
                         shrink=-1,
                         threads=1,
@@ -10,7 +10,7 @@ GlassoFast2=function(S,
 ptm <- proc.time()
 out=a=.C("main2",
          cov=as.numeric(S),
-         L=as.numeric(RhoS),
+         L=as.numeric(rho),
          size=as.integer(nrow(S)),
          approximation=as.integer(approx),
          shrink=as.integer(shrink),
@@ -21,7 +21,7 @@ out=a=.C("main2",
          wiTmp=as.vector(as.numeric(S)))
 runTimeOurs=proc.time()-ptm
 
-results <- list(w=out[[9]], wi=out[[10]], niter=out[[8]],runTime=runTimeOurs)
+results <- list(w=matrix(out[[9]],nrow=nrow(S),ncol=ncol(S)), wi=matrix(out[[10]],nrow=nrow(S),ncol=ncol(S)), niter=out[[8]],runTime=runTimeOurs)
 return(results)
 
 }
