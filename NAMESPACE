@@ -1,2 +1,2 @@
-useDynLib("GLassoFast2")
+useDynLib("GlassoFast2")
 exportPattern("^[[:alpha:]]+")
